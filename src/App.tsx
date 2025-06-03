@@ -1,8 +1,5 @@
 import { Container } from './components/Container';
 import { Logo } from './components/Logo';
-
-import './styles/theme.css';
-import './styles/global.css';
 import { Menu } from './components/Menu';
 import { CountDown } from './components/CountDown';
 import { DefaultInput } from './components/DefaultInput';
@@ -10,6 +7,9 @@ import { Cycles } from './components/Cycles';
 import { PlayCircleIcon } from 'lucide-react';
 import { DefaultButton } from './components/DefaultButton';
 import { Footer } from './components/Footer';
+
+import './styles/theme.css';
+import './styles/global.css';
 
 export function App() {
   return (
