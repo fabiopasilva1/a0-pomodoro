@@ -17,9 +17,9 @@ export function Menu() {
     return storageTheme;
   });
   function handleThemeChange(
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   ) {
-    e.preventDefault();
+    event.preventDefault();
     setTheme(prevTheme => {
       const nextTheme = prevTheme === 'dark' ? 'light' : 'dark';
       return nextTheme;
