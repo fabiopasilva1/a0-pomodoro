@@ -23,6 +23,6 @@
 .shortBreakTime {
   background-color: var(--success);
 }
-.shortLongBreakTime {
+.longBreakTime {
   background-color: var(--info);
 }
