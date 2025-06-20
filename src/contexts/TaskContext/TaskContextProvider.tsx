@@ -5,6 +5,7 @@ import { taskReducer } from './taskReducer';
 import { TimerWorkerManager } from '../../workers/TimerWorkerManager';
 import { TaskActionTypes } from './taskActions';
 import { loadBeep } from '../../utils/loadBeep';
+import { showMessage } from '../../adapters/showMessage';
 type TaskContextProviderProps = {
   children: React.ReactNode;
 };
@@ -21,6 +22,7 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
       if (playBeepRef.current !== null) {
         playBeepRef.current();
         playBeepRef.current = null;
+        showMessage.success(`Tarefa ${state.activeTask?.name} concluída!`);
       }
       dispatch({
         type: TaskActionTypes.COMPLETE_TASK,

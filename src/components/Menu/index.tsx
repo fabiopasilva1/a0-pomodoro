@@ -8,6 +8,7 @@ import {
 
 import styles from './styles.module.css';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 type AvailableThemes = 'dark' | 'light';
 export function Menu() {
@@ -42,39 +43,39 @@ export function Menu() {
 
   return (
     <div className={styles.menu}>
-      <a
-        href='#'
+      <Link
+        to='/'
         className={styles.menuLink}
         aria-label='Ir para a Home'
         title='Ir para a Home'
       >
         <HouseIcon />
-      </a>
-      <a
-        href='#'
+      </Link>
+      <Link
+        to='/'
         className={styles.menuLink}
         aria-label='Ver Histórico'
         title='Ver Histórico'
       >
         <HistoryIcon />
-      </a>
-      <a
-        href='#'
+      </Link>
+      <Link
+        to='#'
         className={styles.menuLink}
         aria-label='Configurações'
         title='Configurações'
       >
         <SettingsIcon />
-      </a>
-      <a
-        href='#'
+      </Link>
+      <Link
+        to='#'
         className={styles.menuLink}
         aria-label='Mudar Tema'
         title='Mudar Tema'
         onClick={handleThemeChange}
       >
         {nextThemeIcon[theme]}
-      </a>
+      </Link>
     </div>
   );
 }

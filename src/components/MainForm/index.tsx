@@ -56,7 +56,9 @@ export function MainForm() {
           ref={taskNameInput}
           id='meuInput'
           type='text'
-          labelText='task'
+          labelText={
+            state.activeTask ? state.activeTask.name : 'Digite uma tarefa'
+          }
           placeholder='Digite uma tarefa'
           disabled={!!state.activeTask}
         />
