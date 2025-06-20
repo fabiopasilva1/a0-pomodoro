@@ -1,65 +1,56 @@
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useRef } from 'react';
 import { initialTaskState } from './initialTaskState';
 import { TaskContext } from './TaskContext';
+import { taskReducer } from './taskReducer';
+import { TimerWorkerManager } from '../../workers/TimerWorkerManager';
+import { TaskActionTypes } from './taskActions';
+import { loadBeep } from '../../utils/loadBeep';
 type TaskContextProviderProps = {
   children: React.ReactNode;
 };
 
 export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
-  const [state, setState] = useState(initialTaskState);
-  type ActionType = {
-    type: string;
-    payload?: number;
-  };
-  const [myState, dispatch] = useReducer(
-    (state, action: ActionType) => {
-      console.log(state, action);
+  const [state, dispatch] = useReducer(taskReducer, initialTaskState);
+  const playBeepRef = useRef<ReturnType<typeof loadBeep> | null>(null);
+  const worker = TimerWorkerManager.getInstance();
 
-      switch (action.type) {
-        case 'INCREMENT': {
-          if (!action.payload) return state;
-          return {
-            ...state,
-            secondsRemaining: state.secondsRemaining + action.payload,
-          };
-        }
-        case 'DECREMENT': {
-          if (!action.payload) return state;
-          return {
-            ...state,
-            secondsRemaining: state.secondsRemaining - action.payload,
-          };
-        }
-        case 'RESET': {
-          return { secondsRemaining: 0 };
-        }
-        default: {
-          return state;
-        }
+  worker.onmessage(e => {
+    const countDownSeconds = e.data;
+
+    if (countDownSeconds <= 0) {
+      if (playBeepRef.current !== null) {
+        playBeepRef.current();
+        playBeepRef.current = null;
       }
-    },
-    {
-      secondsRemaining: 0,
-    },
-  );
+      dispatch({
+        type: TaskActionTypes.COMPLETE_TASK,
+      });
+      worker.terminate();
+    } else {
+      dispatch({
+        type: TaskActionTypes.COUNT_DOWN,
+        payload: { secondsRemaining: countDownSeconds },
+      });
+    }
+  });
 
-  //   useEffect(() => {
-  //     console.log(state);
-  //   }, [state]);
+  useEffect(() => {
+    if (!state.activeTask) {
+      worker.terminate();
+    }
+    worker.postMessage(state);
+  }, [worker, state]);
+
+  useEffect(() => {
+    if (state.activeTask && playBeepRef.current === null) {
+      playBeepRef.current = loadBeep();
+    } else {
+      playBeepRef.current = null;
+    }
+  }, [state.activeTask]);
   return (
-    <TaskContext.Provider value={{ state, setState }}>
-      {/* {children} */}
-      <h1>O estado é {JSON.stringify(myState)}</h1>
-      <button onClick={() => dispatch({ type: 'INCREMENT', payload: 10 })}>
-        Incrementar
-      </button>
-      <button onClick={() => dispatch({ type: 'INCREMENT', payload: 20 })}>
-        Incrementar 20
-      </button>
-      <button onClick={() => dispatch({ type: 'DECREMENT', payload: 10 })}>
-        Decrement 10
-      </button>
-      <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
+    <TaskContext.Provider value={{ state, dispatch }}>
+      {children}
     </TaskContext.Provider>
   );
 };
