@@ -1,13 +1,15 @@
-import { Link } from 'react-router';
 import styles from './styles.module.css';
+import { RouterLink } from '../RouterLink';
 
 export function Footer() {
   return (
     <footer className={styles.footer}>
-      <Link to='/about-pomodoro'>Endenda como funciona a técnica pomodoro</Link>
-      <Link to='#'>
+      <RouterLink href='/about-pomodoro'>
+        Endenda como funciona a técnica pomodoro
+      </RouterLink>
+      <RouterLink href='/'>
         Chronos Pmodoro &copy; {new Date().getFullYear()} - Feito com 💚
-      </Link>
+      </RouterLink>
     </footer>
   );
 }
