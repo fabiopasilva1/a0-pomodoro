@@ -27,5 +27,46 @@
     "scope": "/",
     "description": "Gerencie seus ciclos de Pomodoro com o Chronos Pomodoro. Timer completo, personalizavel",
     "id": "/",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "shortcuts": [
+        {
+            "name": "Iniciar Pomodoro",
+            "short_name": "Pomodoro",
+            "description": "Inicia um novo ciclo de Pomodoro",
+            "url": "/?pomodoro=true",
+            "icons": [
+                {
+                    "src": "/pomodoro-shortcut-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Iniciar Short Break",
+            "short_name": "Short Break",
+            "description": "Inicia um curto período de descanso",
+            "url": "/?short-break=true",
+            "icons": [
+                {
+                    "src": "/short-break-shortcut-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Iniciar Long Break",
+            "short_name": "Long Break",
+            "description": "Inicia um longo período de descanso",
+            "url": "/?long-break=true",
+            "icons": [
+                {
+                    "src": "/long-break-shortcut-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ]
 }
