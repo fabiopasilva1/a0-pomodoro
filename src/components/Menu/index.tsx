@@ -31,9 +31,7 @@ export function Menu() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
 
-    return () => {
-      console.log('Olha, este componente será atualizado');
-    };
+    return () => {};
   }, [theme]);
 
   const nextThemeIcon = {
