@@ -29,7 +29,7 @@ export function Settings() {
       formErrors.push('Digite apenas numeros para todos os campos');
     }
 
-    if (workTime < 1 || workTime > 99) {
+    if (workTime < 1 || workTime > 120) {
       formErrors.push('Digite valores entre 1 e 99 para foco');
     }
     if (shortBreakTime < 1 || shortBreakTime > 30) {
