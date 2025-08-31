@@ -100,8 +100,8 @@ detalhes.
 ## 🙏 Agradecimentos
 
 Agradecemos a todos os
-[contribuidores](https://github.com/fabiopasilva1/a0-pomodoro/contributors)
-que ajudam a tornar este projeto melhor!
+[contribuidores](https://github.com/fabiopasilva1/a0-pomodoro/contributors) que
+ajudam a tornar este projeto melhor!
 
 ---
 

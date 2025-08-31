@@ -11,7 +11,7 @@ export function Logo() {
           width={48}
           height={48}
         />
-  <span>A0 Pomodoro</span>
+        <span>A0 Pomodoro</span>
       </RouterLink>
     </div>
   );
