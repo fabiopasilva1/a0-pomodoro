@@ -6,6 +6,7 @@ Este documento contém todas as diretrizes e informações necessárias para con
 
 ## 📋 Índice
 
+- [Política de Branch Protection](#política-de-branch-protection)
 - [Como Contribuir](#como-contribuir)
 - [Configuração do Ambiente](#configuração-do-ambiente)
 - [Padrões de Código](#padrões-de-código)
@@ -13,6 +14,60 @@ Este documento contém todas as diretrizes e informações necessárias para con
 - [Reportando Issues](#reportando-issues)
 - [Código de Conduta](#código-de-conduta)
 - [Tipos de Contribuição](#tipos-de-contribuição)
+
+## 🔒 Política de Branch Protection
+
+### Branch Principal Protegida
+
+**Sim, a branch `main` está protegida** para garantir a qualidade e estabilidade do projeto. Isso significa que:
+
+#### ❌ **NÃO é possível:**
+- Fazer push direto para a branch `main`
+- Mergear sem revisão
+- Forçar push (`git push --force`)
+- Deletar a branch `main`
+
+#### ✅ **O que VOCÊ PODE fazer:**
+- Criar branches a partir da `main`
+- Submeter Pull Requests
+- Contribuir através do processo de revisão
+- Reportar issues e sugerir melhorias
+
+### Por que a Branch Main está Protegida?
+
+1. **Qualidade**: Garante que todo código passa por revisão antes do merge
+2. **Estabilidade**: Evita quebras na versão de produção
+3. **Colaboração**: Facilita o trabalho em equipe com processos claros
+4. **Histórico**: Mantém um histórico limpo e rastreável
+
+### Regras de Proteção Aplicadas
+
+- 🔍 **Revisão obrigatória**: Pull Requests devem ser aprovados pelo mantenedor
+- ✅ **Verificações obrigatórias**: Lint e build devem passar
+- 🚫 **Sem force push**: Histórico é preservado
+- 👨‍💼 **Apenas administradores**: Somente o owner pode fazer bypass (emergências)
+
+### Como Contribuir Corretamente
+
+```bash
+# 1. Fork o repositório no GitHub
+# 2. Clone seu fork
+git clone https://github.com/SEU_USUARIO/chronos-pomodoro.git
+
+# 3. Crie uma branch para sua contribuição  
+git checkout -b feature/minha-contribuicao
+
+# 4. Faça suas alterações e commits
+git add .
+git commit -m "feat: adiciona nova funcionalidade"
+
+# 5. Push para SEU fork
+git push origin feature/minha-contribuicao
+
+# 6. Abra um Pull Request no GitHub
+```
+
+> 💡 **Dica**: Este processo de proteção existe para **ajudar** todos os contribuidores, não para dificultar. Ele garante que o projeto mantenha alta qualidade e funcione corretamente para todos os usuários.
 
 ## 🚀 Como Contribuir
 
@@ -149,6 +204,8 @@ src/
 ```
 
 ## 🔄 Processo de Pull Request
+
+> ⚠️ **Importante**: A branch `main` está protegida. Todas as contribuições devem passar pelo processo de Pull Request descrito abaixo.
 
 ### Antes de Enviar
 
