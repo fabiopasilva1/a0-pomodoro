@@ -1,15 +1,17 @@
-name: Deploy to gh-pages branch
+name: Deploy to main/docs
 
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'docs/**'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: gh-pages
+  group: pages-docs
   cancel-in-progress: false
 
 jobs:
@@ -40,11 +42,12 @@ jobs:
       - name: SPA fallback (copy index.html to 404.html)
         run: cp dist/index.html dist/404.html
 
-      - name: Deploy to gh-pages branch
+      - name: Deploy to main/docs
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
+          branch: main
           folder: dist
+          target-folder: docs
           clean: true
           single-commit: true
-          commit-message: 'chore(pages): deploy dist to gh-pages'
+          commit-message: 'chore(pages): deploy dist to docs [skip ci]'
