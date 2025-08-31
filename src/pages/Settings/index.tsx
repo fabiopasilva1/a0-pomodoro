@@ -15,7 +15,7 @@ export function Settings() {
   const shortBreakTimeInput = useRef<HTMLInputElement>(null);
   const longBreakTimeInput = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    document.title = 'Configurações | Chronos Pomodoro 🍅 ';
+    document.title = 'Configurações | A0 Pomodoro 🍅 ';
   }, []);
   function handleSaveSettings(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

@@ -1,6 +1,8 @@
-# 🍅 Chronos Pomodoro
+# 🍅 A0 Pomodoro
 
-**Chronos Pomodoro** é uma aplicação web moderna para gerenciamento de tempo baseada na técnica Pomodoro. Desenvolvida com React, TypeScript e Vite, oferece uma experiência fluida e personalizável para aumentar sua produtividade.
+**A0 Pomodoro** é uma aplicação web moderna para gerenciamento de tempo baseada
+na técnica Pomodoro. Desenvolvida com React, TypeScript e Vite, oferece uma
+experiência fluida e personalizável para aumentar sua produtividade.
 
 ## ✨ Funcionalidades
 
@@ -16,15 +18,15 @@
 
 ### Pré-requisitos
 
-- Node.js 18+ 
+- Node.js 18+
 - npm ou pnpm
 
 ### Instalação
 
 ```bash
 # Clone o repositório
-git clone https://github.com/fabiopasilva1/chronos-pomodoro.git
-cd chronos-pomodoro
+git clone https://github.com/fabiopasilva1/a0-pomodoro.git
+cd a0-pomodoro
 
 # Instale as dependências
 npm install
@@ -50,21 +52,25 @@ npm run lint     # Executa o ESLint
 
 ## 🤝 Contribuindo
 
-Adoramos contribuições! Leia nosso [Guia de Contribuição](CONTRIBUTING.md) para saber como participar do desenvolvimento do projeto.
+Adoramos contribuições! Leia nosso [Guia de Contribuição](CONTRIBUTING.md) para
+saber como participar do desenvolvimento do projeto.
 
 ### Formas de Contribuir
 
 - 🐛 Reportar bugs
-- ✨ Sugerir novas funcionalidades  
+- ✨ Sugerir novas funcionalidades
 - 📝 Melhorar documentação
 - 🎨 Aprimorar a interface
 - 🔧 Contribuir com código
 
-> **🔒 Nota sobre Branch Protection**: A branch `main` está protegida. Todas as contribuições devem ser feitas através de Pull Requests. Veja nossa [documentação completa](.github/BRANCH_PROTECTION.md) para mais detalhes.
+> **🔒 Nota sobre Branch Protection**: A branch `main` está protegida. Todas as
+> contribuições devem ser feitas através de Pull Requests. Veja nossa
+> [documentação completa](.github/BRANCH_PROTECTION.md) para mais detalhes.
 
 ## 📖 Sobre a Técnica Pomodoro
 
-A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por Francesco Cirillo. Consiste em:
+A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por
+Francesco Cirillo. Consiste em:
 
 1. **25 minutos** de foco total em uma tarefa
 2. **5 minutos** de pausa curta
@@ -79,7 +85,7 @@ A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por Fra
 ## 🏗️ Tecnologias
 
 - **Frontend**: React 19 + TypeScript
-- **Bundler**: Vite 
+- **Bundler**: Vite
 - **Styling**: CSS Modules + CSS Variables
 - **Icons**: Lucide React
 - **Notifications**: React Toastify
@@ -88,11 +94,14 @@ A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por Fra
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais
+detalhes.
 
 ## 🙏 Agradecimentos
 
-Agradecemos a todos os [contribuidores](https://github.com/fabiopasilva1/chronos-pomodoro/contributors) que ajudam a tornar este projeto melhor!
+Agradecemos a todos os
+[contribuidores](https://github.com/fabiopasilva1/a0-pomodoro/contributors)
+que ajudam a tornar este projeto melhor!
 
 ---
 
@@ -102,7 +111,8 @@ Agradecemos a todos os [contribuidores](https://github.com/fabiopasilva1/chronos
 
 ### Configuração do ESLint
 
-Se você está desenvolvendo uma aplicação para produção, recomendamos atualizar a configuração para habilitar regras de lint com consciência de tipos:
+Se você está desenvolvendo uma aplicação para produção, recomendamos atualizar a
+configuração para habilitar regras de lint com consciência de tipos:
 
 ```js
 export default tseslint.config({
@@ -121,15 +131,19 @@ export default tseslint.config({
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
-Você também pode instalar [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) e [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) para regras de lint específicas do React:
+Você também pode instalar
+[eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x)
+e
+[eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom)
+para regras de lint específicas do React:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from 'eslint-plugin-react-x';
+import reactDom from 'eslint-plugin-react-dom';
 
 export default tseslint.config({
   plugins: {
@@ -143,5 +157,5 @@ export default tseslint.config({
     ...reactX.configs['recommended-typescript'].rules,
     ...reactDom.configs.recommended.rules,
   },
-})
+});
 ```

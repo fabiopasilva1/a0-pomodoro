@@ -1,21 +1,25 @@
-# 🔒 Configuração de Branch Protection - Chronos Pomodoro
+# 🔒 Configuração de Branch Protection - A0 Pomodoro
 
-Este documento descreve as configurações de proteção de branch aplicadas ao repositório para manter a qualidade e estabilidade do projeto.
+Este documento descreve as configurações de proteção de branch aplicadas ao
+repositório para manter a qualidade e estabilidade do projeto.
 
 ## 🎯 Configurações Aplicadas na Branch `main`
 
 ### Proteções Básicas
+
 - ✅ **Require pull request reviews before merging**
   - Required approving reviews: 1
   - Dismiss stale reviews: Enabled
   - Require review from code owners: Enabled (se houver CODEOWNERS)
 
 ### Verificações de Status
+
 - ✅ **Require status checks to pass before merging**
   - Build checks (se houver CI/CD configurado)
   - Lint checks
 
 ### Restrições Adicionais
+
 - ✅ **Restrict pushes that create files**
 - ✅ **Require branches to be up to date before merging**
 - ✅ **Include administrators** (apply rules to admins too)
@@ -32,12 +36,15 @@ Este documento descreve as configurações de proteção de branch aplicadas ao 
 4. Configure as seguintes opções:
 
 #### Protect matching branches:
+
 - [x] Require pull request reviews before merging
+
   - [x] Required approving reviews: 1
   - [x] Dismiss stale pull request reviews when new commits are pushed
   - [x] Require review from code owners
 
 - [x] Require status checks to pass before merging
+
   - [x] Require branches to be up to date before merging
 
 - [x] Require conversation resolution before merging
@@ -65,7 +72,7 @@ Para verificar se as proteções estão ativas:
 
 ```bash
 # Via GitHub CLI
-gh api repos/fabiopasilva1/chronos-pomodoro/branches/main/protection
+gh api repos/fabiopasilva1/a0-pomodoro/branches/main/protection
 
 # Via interface web
 # Vá para Settings → Branches e verifique as regras aplicadas
@@ -74,11 +81,13 @@ gh api repos/fabiopasilva1/chronos-pomodoro/branches/main/protection
 ## 🔍 Monitoramento e Auditoria
 
 ### Logs de Proteção
+
 - Todas as tentativas de bypass são logadas
 - Histórico de mudanças nas regras de proteção
 - Auditoria de quem aprovou/rejeitou PRs
 
 ### Alertas Automáticos
+
 - Notificações quando regras são alteradas
 - Alertas para tentativas de force push
 - Logs de atividade suspeita
@@ -86,6 +95,7 @@ gh api repos/fabiopasilva1/chronos-pomodoro/branches/main/protection
 ## 🚨 Casos de Emergência
 
 ### Bypass Temporário (Apenas Owner)
+
 Em casos de emergência crítica, o owner pode:
 
 1. Temporariamente desabilitar a proteção
@@ -114,5 +124,4 @@ git push --force origin main  # (APÓS desabilitar proteção)
 
 ---
 
-**Última atualização**: $(date)
-**Responsável**: @fabiopasilva1
+**Última atualização**: $(date) **Responsável**: @fabiopasilva1

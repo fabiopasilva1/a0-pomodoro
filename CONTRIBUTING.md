@@ -1,8 +1,9 @@
-# 🤝 Política de Contribuição - Chronos Pomodoro
+# 🤝 Política de Contribuição - A0 Pomodoro
 
-Obrigado pelo seu interesse em contribuir com o **Chronos Pomodoro**! 🍅✨
+Obrigado pelo seu interesse em contribuir com o **A0 Pomodoro**! 🍅✨
 
-Este documento contém todas as diretrizes e informações necessárias para contribuir de forma efetiva com o projeto.
+Este documento contém todas as diretrizes e informações necessárias para
+contribuir de forma efetiva com o projeto.
 
 ## 📋 Índice
 
@@ -19,15 +20,18 @@ Este documento contém todas as diretrizes e informações necessárias para con
 
 ### Branch Principal Protegida
 
-**Sim, a branch `main` está protegida** para garantir a qualidade e estabilidade do projeto. Isso significa que:
+**Sim, a branch `main` está protegida** para garantir a qualidade e estabilidade
+do projeto. Isso significa que:
 
 #### ❌ **NÃO é possível:**
+
 - Fazer push direto para a branch `main`
 - Mergear sem revisão
 - Forçar push (`git push --force`)
 - Deletar a branch `main`
 
 #### ✅ **O que VOCÊ PODE fazer:**
+
 - Criar branches a partir da `main`
 - Submeter Pull Requests
 - Contribuir através do processo de revisão
@@ -52,9 +56,9 @@ Este documento contém todas as diretrizes e informações necessárias para con
 ```bash
 # 1. Fork o repositório no GitHub
 # 2. Clone seu fork
-git clone https://github.com/SEU_USUARIO/chronos-pomodoro.git
+git clone https://github.com/SEU_USUARIO/a0-pomodoro.git
 
-# 3. Crie uma branch para sua contribuição  
+# 3. Crie uma branch para sua contribuição
 git checkout -b feature/minha-contribuicao
 
 # 4. Faça suas alterações e commits
@@ -67,7 +71,9 @@ git push origin feature/minha-contribuicao
 # 6. Abra um Pull Request no GitHub
 ```
 
-> 💡 **Dica**: Este processo de proteção existe para **ajudar** todos os contribuidores, não para dificultar. Ele garante que o projeto mantenha alta qualidade e funcione corretamente para todos os usuários.
+> 💡 **Dica**: Este processo de proteção existe para **ajudar** todos os
+> contribuidores, não para dificultar. Ele garante que o projeto mantenha alta
+> qualidade e funcione corretamente para todos os usuários.
 
 ## 🚀 Como Contribuir
 
@@ -76,11 +82,11 @@ git push origin feature/minha-contribuicao
 ```bash
 # 1. Faça um fork do repositório no GitHub
 # 2. Clone seu fork localmente
-git clone https://github.com/SEU_USUARIO/chronos-pomodoro.git
-cd chronos-pomodoro
+git clone https://github.com/SEU_USUARIO/a0-pomodoro.git
+cd a0-pomodoro
 
 # 3. Adicione o repositório original como upstream
-git remote add upstream https://github.com/fabiopasilva1/chronos-pomodoro.git
+git remote add upstream https://github.com/fabiopasilva1/a0-pomodoro.git
 ```
 
 ### 2. Mantenha seu Fork Atualizado
@@ -107,7 +113,7 @@ git checkout -b docs/atualizacao-documentacao
 
 ### Pré-requisitos
 
-- **Node.js** 18+ 
+- **Node.js** 18+
 - **npm** ou **pnpm** (recomendado)
 - **Git**
 
@@ -205,7 +211,8 @@ src/
 
 ## 🔄 Processo de Pull Request
 
-> ⚠️ **Importante**: A branch `main` está protegida. Todas as contribuições devem passar pelo processo de Pull Request descrito abaixo.
+> ⚠️ **Importante**: A branch `main` está protegida. Todas as contribuições
+> devem passar pelo processo de Pull Request descrito abaixo.
 
 ### Antes de Enviar
 
@@ -225,6 +232,7 @@ git commit -m "style: melhora responsividade do layout"
 ```
 
 **Tipos de commit:**
+
 - `feat`: Nova funcionalidade
 - `fix`: Correção de bug
 - `docs`: Documentação
@@ -243,7 +251,7 @@ Descreva brevemente as mudanças realizadas.
 ## 🎯 Tipo de Mudança
 
 - [ ] 🐛 Bug fix
-- [ ] ✨ Nova funcionalidade  
+- [ ] ✨ Nova funcionalidade
 - [ ] 💄 Mudança de estilo/UI
 - [ ] 📚 Documentação
 - [ ] ♻️ Refatoração
@@ -386,8 +394,9 @@ Se tiver dúvidas sobre como contribuir:
 
 ## 🙏 Reconhecimento
 
-Todas as contribuições são valorizadas e reconhecidas! Os contribuidores serão listados no projeto e terão nosso sincero agradecimento.
+Todas as contribuições são valorizadas e reconhecidas! Os contribuidores serão
+listados no projeto e terão nosso sincero agradecimento.
 
 ---
 
-**Obrigado por tornar o Chronos Pomodoro ainda melhor!** 🍅✨
+**Obrigado por tornar o A0 Pomodoro ainda melhor!** 🍅✨
