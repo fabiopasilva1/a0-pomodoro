@@ -60,6 +60,8 @@ Adoramos contribuições! Leia nosso [Guia de Contribuição](CONTRIBUTING.md) p
 - 🎨 Aprimorar a interface
 - 🔧 Contribuir com código
 
+> **🔒 Nota sobre Branch Protection**: A branch `main` está protegida. Todas as contribuições devem ser feitas através de Pull Requests. Veja nossa [documentação completa](.github/BRANCH_PROTECTION.md) para mais detalhes.
+
 ## 📖 Sobre a Técnica Pomodoro
 
 A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por Francesco Cirillo. Consiste em:
