@@ -52,7 +52,9 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
     if (!state.activeTask) {
       worker.terminate();
     }
-    document.title = `${state.formattedSecondsRemaining} - A0 ${state.activeTask?.name}`;
+    document.title = `${state.formattedSecondsRemaining} - A0 ${
+      state.activeTask?.name ? state.activeTask?.name : 'Pomodoro'
+    }`;
     worker.postMessage(state);
   }, [worker, state]);
 
