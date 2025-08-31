@@ -35,8 +35,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile=false
 
-      - name: Build
-        run: pnpm run build
+      - name: Build (Pages mode)
+        run: pnpm run build:pages
 
       - name: SPA fallback (copy index.html to 404.html)
         run: cp dist/index.html dist/404.html
