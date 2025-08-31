@@ -41,6 +41,16 @@ pnpm dev
 
 Abra [http://localhost:5173](http://localhost:5173) no seu navegador.
 
+### Deploy no GitHub Pages
+
+Este projeto está configurado para deploy automático via GitHub Actions.
+
+- `vite.config.ts` usa `base: '/a0-pomodoro/'` (necessário para Pages)
+- Workflow: `.github/workflows/deploy.yml`
+- Fallback SPA: copia `dist/index.html` para `dist/404.html`
+
+Após um push na `main`, o Pages será publicado automaticamente.
+
 ## 🛠️ Scripts Disponíveis
 
 ```bash
