@@ -23,7 +23,7 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-  # Usa a versão do pnpm definida em package.json (packageManager)
+      # Usa a versão do pnpm definida em package.json (packageManager)
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -39,6 +39,9 @@ jobs:
 
       - name: SPA fallback (copy index.html to 404.html)
         run: cp dist/index.html dist/404.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
