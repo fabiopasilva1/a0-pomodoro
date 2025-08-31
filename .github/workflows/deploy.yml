@@ -47,4 +47,4 @@ jobs:
           folder: dist
           clean: true
           single-commit: true
-          commit-message: "chore(pages): deploy dist to gh-pages"
+          commit-message: 'chore(pages): deploy dist to gh-pages'
