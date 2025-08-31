@@ -6,7 +6,7 @@ export function Logo() {
     <div className={styles.logo}>
       <RouterLink href='/' className={styles.logoLink}>
         <img
-          src='/images/favicon/favicon-96x96.png'
+          src={`${import.meta.env.BASE_URL}images/favicon/favicon-96x96.png`}
           alt='logo'
           width={48}
           height={48}
