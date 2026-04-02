@@ -43,15 +43,15 @@ jobs:
         run: cp dist/index.html dist/404.html
       
         
-      - name: Deploy to main/docs
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: main
-          folder: dist
-          target-folder: docs
-          clean: true
-          single-commit: true
-          commit-message: 'chore(pages): deploy dist to docs [skip ci]'
+      # - name: Deploy to main/docs
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     branch: main
+      #     folder: dist
+      #     target-folder: docs
+      #     clean: true
+      #     single-commit: true
+      #     commit-message: 'chore(pages): deploy dist to docs [skip ci]'
 
       - name: Set Server IP and Commands
         run: |
