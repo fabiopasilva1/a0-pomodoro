@@ -44,8 +44,11 @@ jobs:
       
       - name: Clean up previous worktrees
         run: |
-          rm -rf github-pages-deploy-action-temp-deployment-folder
-          git worktree prune  
+          rm -rf github-pages-deploy-action-temp-deployment-folder 
+
+      - name: Prune dead Git worktrees
+        run: git worktree prune
+        
       - name: Deploy to main/docs
         uses: JamesIves/github-pages-deploy-action@v4
         with:
