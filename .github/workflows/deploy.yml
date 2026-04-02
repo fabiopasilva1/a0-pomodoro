@@ -15,21 +15,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        
+       - name: Install pnpm
+        run: npm install -g pnpm
+        
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'pnpm'
           
-      - name: Install pnpm
-        run: npm install -g pnpm
+     
 
       - name: Install dependencies
         run: pnpm install
       
-      - name: Install dependencies
-        run: pnpm install
 
       # Se desejar, adicione etapas de lint e teste (opcional):
       # - name: Lint
