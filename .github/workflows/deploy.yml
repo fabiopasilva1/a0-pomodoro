@@ -1,61 +1,41 @@
-name: Deploy to main/docs
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
-    paths-ignore:
-      - 'docs/**'
-  workflow_dispatch:
+    branches:
+      - main
 
 permissions:
   contents: write
 
-concurrency:
-  group: pages-docs
-  cancel-in-progress: false
-
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        # Usa a versão do pnpm definida em package.json (packageManager)
-
-      - name: Setup Node
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
+          node-version: '18'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Build (Pages mode)
-        run: pnpm run build:pages
+      # Se desejar, adicione etapas de lint e teste (opcional):
+      # - name: Lint
+      #   run: pnpm run lint
+      # - name: Test
+      #   run: pnpm run test
 
-      - name: SPA fallback (copy index.html to 404.html)
-        run: cp dist/index.html dist/404.html
-      
-      - name: Force-remove existing main worktree reference
-        run: |
-          git worktree remove github-pages-deploy-action-temp-deployment-folder --force || true
-          git worktree prune
-        
-      - name: Deploy to main/docs
+      - name: Build
+        run: pnpm run build
+
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: main
-          folder: dist
-          target-folder: docs
-          clean: true
-          single-commit: true
-          commit-message: 'chore(pages): deploy dist to docs [skip ci]'
-      - name: Deploy Hostinger
-        run: | 
-           rsync -avz --delete ./ root@145.223.95.9:/home/fabio/projects/a0
+          branch: gh-pages   # branch para publicar o site, NÃO use 'main'
+          folder: docs       # ajuste se o build sair em outro diretório (ex: 'dist', 'build', etc)
