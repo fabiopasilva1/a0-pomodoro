@@ -52,4 +52,15 @@ jobs:
           clean: true
           single-commit: true
           commit-message: 'chore(pages): deploy dist to docs [skip ci]'
+
+      
+      - name: Set Server IP and Commands
+        run: |
+          echo "SERVER_IP=${{ secrets.SERVER_IP }}" >> $GITHUB_ENV
+          echo "DEPLOY_COMMAND=cd /home/fabio/projetos/a0/ && git pull origin staging && docker compose up --build -d" >> $GITHUB_ENV  
+      - name: Deplou to Server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@145.223.95.9 << EOF
+            $DEPLOY_COMMAND
+          EOF
      
