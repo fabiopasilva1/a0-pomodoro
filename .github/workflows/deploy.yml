@@ -51,3 +51,6 @@ jobs:
           clean: true
           single-commit: true
           commit-message: 'chore(pages): deploy dist to docs [skip ci]'
+      - name: Deploy Hostinger
+        run: | 
+           rsync -avz --delete ./ root@145.223.95.9:/home/fabio/projects/a0
