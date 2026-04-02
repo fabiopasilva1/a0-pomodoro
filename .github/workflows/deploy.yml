@@ -45,3 +45,7 @@ jobs:
         with:
           branch: gh-pages   # branch para publicar o site, NÃO use 'main'
           folder: docs       # ajuste se o build sair em outro diretório (ex: 'dist', 'build', etc)
+
+      - name: Deploy hostinger
+        run: |
+          rsync -avz --delete ./ usuario@localhost:/var/www/app
