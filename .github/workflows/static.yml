@@ -42,6 +42,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Deploy hostinger
-        run: |
-         rsync -avz --delete ./ root@145.223.95.9t:/home/fabio/projects/a0
