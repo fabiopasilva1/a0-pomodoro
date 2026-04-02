@@ -1,51 +1,55 @@
-name: Deploy to GitHub Pages
+name: Deploy to main/docs
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+concurrency:
+  group: pages-docs
+  cancel-in-progress: false
 
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-        
-       - name: Install pnpm
-        run: npm install -g pnpm
-        
-      - name: Set up Node.js
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        # Usa a versão do pnpm definida em package.json (packageManager)
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'pnpm'
-          
-     
+          node-version: 20
+          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build (Pages mode)
+        run: pnpm run build:pages
+
+      - name: SPA fallback (copy index.html to 404.html)
+        run: cp dist/index.html dist/404.html
       
-
-      # Se desejar, adicione etapas de lint e teste (opcional):
-      # - name: Lint
-      #   run: pnpm run lint
-      # - name: Test
-      #   run: pnpm run test
-
-      - name: Build
-        run: pnpm run build
-
-      - name: Deploy to GitHub Pages
+        
+      - name: Deploy to main/docs
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages   # branch para publicar o site, NÃO use 'main'
-          folder: docs       # ajuste se o build sair em outro diretório (ex: 'dist', 'build', etc)
-
-      - name: Deploy hostinger
-        run: |
-          rsync -avz --delete ./ usuario@localhost:/var/www/app
+          branch: main
+          folder: dist
+          target-folder: docs
+          clean: true
+          single-commit: true
+          commit-message: 'chore(pages): deploy dist to docs [skip ci]'
+     
