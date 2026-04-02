@@ -42,12 +42,10 @@ jobs:
       - name: SPA fallback (copy index.html to 404.html)
         run: cp dist/index.html dist/404.html
       
-      - name: Clean up previous worktrees
+      - name: Force-remove existing main worktree reference
         run: |
-          rm -rf github-pages-deploy-action-temp-deployment-folder 
-
-      - name: Prune dead Git worktrees
-        run: git worktree prune
+          git worktree remove github-pages-deploy-action-temp-deployment-folder --force || true
+          git worktree prune
         
       - name: Deploy to main/docs
         uses: JamesIves/github-pages-deploy-action@v4
